@@ -55,9 +55,8 @@ class ScrapeTool:
                     listing_text_clean = self._clean_text(listing_text)
                     # extract phone number
                     phone = self._extract_phone_number(listing_text_clean)
-                    listing_dict = {}
-                    self._store_listing(listing_dict, listing_info, 
-                                        listing_link, phone, listing_text_clean)
+                    listing_dict = self._store_listing(listing_info, listing_link, 
+                                                      phone, listing_text_clean)
                     self._listing_pristine.append(listing_dict)
                 else:
                     continue
@@ -161,11 +160,12 @@ class ScrapeTool:
             phone = -1
         return phone
 
-    def _store_listing(self, listing_dict, listing_info, listing_link, 
+    def _store_listing(self, listing_info, listing_link, 
                        phone, listing_text_clean):
         """
-        Stores the extracted listing info into a dictionary
+        Returns the extracted listing info into a dictionary
         """
+        listing_dict = {}
         listing_dict['pid']   = listing_info[0] 
         listing_dict['head']  = listing_info[1]
         listing_dict['lon']   = listing_info[2]
@@ -180,3 +180,4 @@ class ScrapeTool:
         else:
             listing_dict['post'] = ''
             listing_dict['hasPost'] = 0
+        return listing_dict
