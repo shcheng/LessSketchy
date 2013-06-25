@@ -25,12 +25,7 @@ class ScrapeTool:
         for i in range(100, n+1, 100): 
             lvl_string = 'index' + '%s' % str(i) + '.html'
             self.posting_lvl_list.append(lvl_string)
-        #self.first_pid = 0
         self._listing_pristine = []
-
-        # File names
-        self.out_legit_fname = ''
-        self.out_scams_fname = ''
 
     def scrape(self):
         """
