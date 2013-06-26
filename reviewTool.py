@@ -150,3 +150,24 @@ def reprocess_phoneNumber_flag(listing):
         post['phone'] = phone
     return listing
 
+def get_nprice_and_coordMat(legit_listing):
+    """
+    Returns the legit listing normalized price array
+    coordinate matrix (2d array).
+    
+    Input:  list of json
+    Output: array of normalized prices and array of pair coordinates
+    """
+    legit_listing = pd.DataFrame(legit_listing)
+    wInfo_idx = (legit_listing['price']!=-1) * \
+                (legit_listing['lon']!=-1)   * \
+                (legit_listing['lat']!=-1)   * \
+                (legit_listing['nbr']!=-1)
+    coord_lon = np.array(legit_listing['lon'][wInfo_idx])
+    coord_lat = np.array(legit_listing['lat'][wInfo_idx])
+    coordMat = np.concatenate((coord_lon.reshape(len(coord_lon), 1), 
+                               coord_lat.reshape(len(coord_lat), 1)),
+                               axis=1)
+    npriceList = np.array(legit_listing['price'][wInfo_idx] \
+               / legit_listing['nbr'][wInfo_idx])
+    return npriceList, coordMat
