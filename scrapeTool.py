@@ -1,3 +1,10 @@
+#
+# scrapeTool.py
+#
+# The main scrape tool class for web-scraping
+# and data formating for storing
+#
+
 import urllib2
 import re
 import json
