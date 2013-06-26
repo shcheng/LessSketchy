@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 import scipy.spatial as sp
 from bs4 import BeautifulSoup
+import reviewTool
 
 class Metric:
     """
@@ -21,9 +22,13 @@ class Metric:
         """
         Initialize the metric object
 
-        Input:  listing (pd dataframe), coordMat and npriceList (arrays)
+        Input:  listing (pd dataframe or json list), coordMat and npriceList (arrays)
         """
-        self.listing    = pd.DataFrame(listing)
+        if type(listing)!=pd.core.frame.DataFrame:
+            self.listing = pd.DataFrame(listing)
+        else:
+            self.listing = listing
+        self.listing    = reviewTool.remove_noPosts(self.listing)
         self.coordMat   = coordMat
         self.npriceList = npriceList
 
