@@ -5,6 +5,7 @@
 # on an ensemble of CARTs from scikit-learn.
 #
 
+import pickle
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 
@@ -26,7 +27,6 @@ class BalRandomForest:
         self.test_sample  = np.array([[]])
         self.train_sample = np.array([[]])
         self.estimators   = []
-        self.model = None
         self._add_tags()
         self._train_size = train_size
 
@@ -197,3 +197,9 @@ class BalRandomForest:
         conf_mat = self.get_confusion_matrix(x, x_tag, threshold)
         precision, recall, fpos_rate = self.get_precision_recall(conf_mat)
         return np.array([fpos_rate, recall])
+
+    def pickle_trained_model(self, fname):
+        """
+        Pickles the trained model
+        """
+        pickle.dump(self.estimators, open(fname, 'w'))
