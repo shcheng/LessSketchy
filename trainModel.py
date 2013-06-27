@@ -32,13 +32,16 @@ scams_clean = reviewTool.remove_noPosts(scams_clean)
 # reprocess phone numbers (just in case)
 legit_clean = reviewTool.reprocess_phoneNumber_flag(legit_clean)
 scams_clean = reviewTool.reprocess_phoneNumber_flag(scams_clean)
+print "<> Clean-up process done!"
 # get the normalized price and coordinate matrix
 nprice, coordMat = reviewTool.get_nprice_and_coordMat(legit_clean)
+print "<> Got normalized prices and coordinates"
 # Get the training metrics
 legit_metric = metric.Metric(legit_clean, coordMat, nprice)
 legit_farr   = legit_metric.format_metrics()
 scams_metric = metric.Metric(scams_clean, coordMat, nprice)
 scams_farr   = scams_metric.format_metrics()
+print "<> Got the metrics"
 ### Data Training ###
 brf = bRandomForest.BalRandomForest(legit_farr, scams_farr)
 brf.allocate_test_sample()
