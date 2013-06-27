@@ -17,6 +17,9 @@ develop-eggs
 .installed.cfg
 lib
 lib64
+data
+pickle_jar
+train_logs
 
 # Installer logs
 pip-log.txt

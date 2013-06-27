@@ -132,42 +132,42 @@ def review_listing(list_df):
             listing_legit.append(listing_dict[idx])
     return listing_legit, listing_scams 
 
-def reprocess_phoneNumber_flag(listing):
+def reprocess_phoneNumber_flag(list_df):
     """
     This method corrects the bug in misidentifying phone 
     numbers using re.match.
 
-    Input:  list of json files.
-    Output: list of json files.
+    Input:  panda dataframe
+    Output: panda dataframe
     """
-    for post in listing:
-        phone_match = re.findall('\d{3}\W*\d{3}\W*\d{4}', post['post'])
+    for i in range(len(list_df)):
+        phone_match = re.findall('\d{3}\W*\d{3}\W*\d{4}', list_df.post[i])
         phone = 0
         if len(phone_match)>0:
             phone = int(re.sub(r'\W', '', phone_match[0]))
         else:
             phone = -1
-        post['phone'] = phone
-    return listing
+        list_df.phone[i] = phone
+    return list_df
 
-def get_nprice_and_coordMat(legit_listing):
+def get_nprice_and_coordMat(legit_df):
     """
     Returns the legit listing normalized price array
     coordinate matrix (2d array).
     
-    Input:  list of json
+    Input:  legit listing dataframe
     Output: array of normalized prices and array of pair coordinates
     """
-    legit_listing = pd.DataFrame(legit_listing)
-    wInfo_idx = (legit_listing['price']!=-1) * \
-                (legit_listing['lon']!=-1)   * \
-                (legit_listing['lat']!=-1)   * \
-                (legit_listing['nbr']!=-1)
-    coord_lon = np.array(legit_listing['lon'][wInfo_idx])
-    coord_lat = np.array(legit_listing['lat'][wInfo_idx])
+    #legit_listing = pd.DataFrame(legit_listing)
+    wInfo_idx = (legit_df.price!=-1) * \
+                (legit_df.lon!=-1)   * \
+                (legit_df.lat!=-1)   * \
+                (legit_df.nbr!=-1)
+    coord_lon = np.array(legit_df.lon[wInfo_idx])
+    coord_lat = np.array(legit_df.lat[wInfo_idx])
     coordMat = np.concatenate((coord_lon.reshape(len(coord_lon), 1), 
                                coord_lat.reshape(len(coord_lat), 1)),
                                axis=1)
-    npriceList = np.array(legit_listing['price'][wInfo_idx] \
-               / legit_listing['nbr'][wInfo_idx])
+    npriceList = np.array(legit_df.price[wInfo_idx] \
+               / legit_df.nbr[wInfo_idx])
     return npriceList, coordMat
