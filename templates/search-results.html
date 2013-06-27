@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class="container">
+        <br><br>
+        <div class="row" id="main-content">
+
+            <div class="span4" id="searchbar">
+                <div class="well">
+                    <form action="." method="POST">
+                        <fieldset>
+                            <legend>Find me an apartment</legend>
+                            <input type="text" class="input-block-level" 
+                             placeholder="ex. Mountain View" name="text">
+                            <div class="pull-right">
+                                <input type="submit" class="btn btn-primary" data-loading-text="Loading..." value="Search">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            <div class="span8" id="contentbox">
+                 <div class="well">
+                    {% for l in post_links %}
+                        <p>
+                        <div class="row">
+                        <div class="span12">
+
+                            <!--a href="#" id="tip" rel="tooltip" data-animation="true"
+                             data-original-title="Cool tip" 
+                             data-placement="right">Tip</a-->
+
+                            <div class="span1 {{l[2]}}" 
+                             rel="tooltip"
+                             data-html="true"
+                             data-animation="true"
+                             data-placement="top"
+                             title="{{l[4]}}">{{l[3]}}</div>
+                            &nbsp<a class="span6" href="{{l[1]}}">{{l[0]}}</a> 
+                        </div>
+                        </div>
+                        </p>
+
+                                                
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div> 
+
+{% endblock %}
+

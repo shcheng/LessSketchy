@@ -15,7 +15,7 @@ class BalRandomForest:
     on an ensemble of CARTs
     """
 
-    def __init__(self, legit, scams, train_size=0.8):
+    def __init__(self, legit=[], scams=[], train_size=0.8):
         """
         Initializes the BRF.
 
@@ -27,8 +27,15 @@ class BalRandomForest:
         self.test_sample  = np.array([[]])
         self.train_sample = np.array([[]])
         self.estimators   = []
-        self._add_tags()
+        if len(legit)>0 and len(scams)>0:
+            self._add_tags()
         self._train_size = train_size
+
+    def load_model(self, model):
+        """
+        Loads the already trained model
+        """
+        self.estimators = model
 
     def _add_tags(self):
         """

@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>AptFinder with Sketchy-meter!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="../static/bootstrap/css/bootstrap.min.css"
+         rel="stylesheet" media="screen">
+        <style type="text/css">
+            body {
+                background: url("../static/bootstrap/img/background_pic.jpg") no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            .well {
+                margin: 0 auto; 
+            }
+        </style>
+    </head>
+    <body>
+        <br> 
+        <div class="container">
+        <header class="row">
+        <div class="span12">
+            <nav class="navbar">    
+            <div class="navbar-inner">
+                <a href="/" class="brand">Less Sketchy</a>
+                <ul class="nav"> 
+                    <li class="divider-vertical"></li>
+                    <li><a href="/">Home</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">About</a></li>
+                    <li class="divider-vertical"></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Connect/Contact<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">E-mail</a></li>
+                        </ul>
+                    </li>
+                    <li class="divider-vertical"></li>
+                </ul> 
+            </div>
+            </nav>
+        </div>
+        </header>
+        </div> 
+
+        {% block content %}{% endblock %}
+
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+        <script>$('div').tooltip()</script>
+    </body>
+</html>

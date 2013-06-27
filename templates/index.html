@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+    
+    
+    <!--
+    Find me an apartment!
+    <form action="." method="POST">
+        <input type="text" name="text">
+        <input type="submit" value="Search">
+    </form>
+    -->
+    <div class="container">
+        <br><br><br><br><br><br><br><br><br>
+        <div class="row" id="main-content">
+        <div class="span8 offset2" id="sidebar">
+        <div class="well">
+            <form action="." method="POST">
+                <fieldset>
+                    <legend>Find me an apartment</legend>
+                    <input type="text" class="input-block-level" 
+                     placeholder="ex. Mountain View" name="text">
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-primary" value="Search">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        </div>
+        </div>
+    </div> 
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+
+{% endblock %}
