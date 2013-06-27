@@ -34,7 +34,6 @@ legit_clean = reviewTool.reprocess_phoneNumber_flag(legit_clean)
 scams_clean = reviewTool.reprocess_phoneNumber_flag(scams_clean)
 # get the normalized price and coordinate matrix
 nprice, coordMat = reviewTool.get_nprice_and_coordMat(legit_clean)
-"""
 # Get the training metrics
 legit_metric = metric.Metric(legit_clean, coordMat, nprice)
 legit_farr   = legit_metric.format_metrics()
@@ -54,7 +53,6 @@ fscore = (2.*(prf[0]*prf[1])/(prf[0]+prf[1]))
 roc = brf.get_ROC_curve(brf.test_sample[:,:-1], brf.test_sample[:,-1], 
                         np.arange(0.01, 1, 0.01))
 
-"""
 """
 ### Model validation ###
 fscore = []
