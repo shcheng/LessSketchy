@@ -2,6 +2,7 @@ from flask import Flask
 from flask import request
 from flask import render_template
 
+import socket
 import query
 import metric
 import frontFormating as ff
@@ -54,5 +55,12 @@ def search_results():
     return render_template('search-results.html', post_links=post_links)
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
+    if socket.gethostbyname(socket.gethostname()).startswith('54'):
+        address = '0.0.0.0'
+        portNum = 80
+        app.debug = False
+    else:
+        address = '127.0.0.1'
+        portNum = 5000
+        app.debug = True
+    app.run(address, port=portNum)
