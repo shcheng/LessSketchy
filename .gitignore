@@ -18,6 +18,8 @@ develop-eggs
 .installed.cfg
 lib
 lib64
+
+# My specific directories
 pickle_jar
 train_logs
 
