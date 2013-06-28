@@ -55,7 +55,7 @@ def search_results():
     return render_template('search-results.html', post_links=post_links)
 
 if __name__ == '__main__':
-    if socket.gethostbyname(socket.gethostname()).startswith('54'):
+    if socket.gethostbyname(socket.gethostname()).startswith('172'):
         address = '0.0.0.0'
         portNum = 80
         app.debug = False
