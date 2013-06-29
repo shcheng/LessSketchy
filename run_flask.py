@@ -34,7 +34,7 @@ def search_results():
 
     # Scrape and process listing
     q = query.Query(search_terms)
-    post_listing  = q.scrape(10)
+    post_listing  = q.scrape(5)
     # Get the feature array
     m = metric.Metric(post_listing, coordMat, npriceList)
     feature_arr = m.format_metrics()
