@@ -25,9 +25,10 @@ print "<> coord and normalized data loaded"
 def index():
     return render_template('index.html')
 
-@app.route('/', methods=['POST'])
+@app.route('/search-results')
 def search_results():
-    search_terms = request.form['text']
+    #search_terms = request.form['text']
+    search_terms = request.args.get('text', None)
     search_terms = search_terms.lower()
     search_terms = search_terms.split()
 
@@ -53,6 +54,10 @@ def search_results():
                            hint_str))
 
     return render_template('search-results.html', post_links=post_links)
+
+@app.route('/examples')
+def examples():
+    return render_template('examples.html')
 
 if __name__ == '__main__':
     if socket.gethostbyname(socket.gethostname()).startswith('172'):

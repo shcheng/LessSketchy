@@ -25,13 +25,14 @@ def get_hint(feature_row):
     ## Hint row 1: Price/nbr ##
     nprice_diff = feature_row[-1]
     if nprice_diff>0:
-        hint_string = '<font color="green">%d%%</font> greater than the median ' \
+        hint_string = '<font color="green">%d%% greater </font> than the median ' \
                       % int(nprice_diff*100)
     elif nprice_diff<0:
-        hint_string = '<font color="red">%d%%</font> less than the median' \
+        hint_string = '<font color="red">%d%% less </font> than the median' \
                       % int(nprice_diff*100)
     else:
-        hint_string = '<i class="icon-remove icon-white"></i> Price'
+        hint_string = '<i class="icon-remove icon-white"></i> \
+                       <font color="red">Price</font>'
     ## Hint row 2: Address ##
     if feature_row[0]:
         hint_string += '<br><i class="icon-ok icon-white"></i> \

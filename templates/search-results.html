@@ -7,14 +7,16 @@
 
             <div class="span4" id="searchbar">
                 <div class="well">
-                    <form action="." method="POST">
+                    <form action="search-results" method="GET">
                         <fieldset>
                             <legend>Find me an apartment</legend>
                             <input type="text" class="input-block-level" 
                              placeholder="ex. Mountain View" name="text">
                             <div class="pull-right">
-                                <input type="submit" class="btn btn-primary" data-loading-text="Loading..." value="Search">
+                                <input type="submit" class="btn btn-primary" 
+                                 data-loading-text="Loading..." value="Search">
                             </div>
+                            <a href="/examples">Show me examples!</a>
                         </fieldset>
                     </form>
                 </div>
