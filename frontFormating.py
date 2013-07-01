@@ -31,21 +31,21 @@ def get_hint(feature_row):
         hint_string = '<font color="red">%d%% less </font> than the median' \
                       % int(nprice_diff*100)
     else:
-        hint_string = '<i class="icon-remove icon-white"></i> \
+        hint_string = '<i class="icon-remove"></i> \
                        <font color="red">Price</font>'
     ## Hint row 2: Address ##
     if feature_row[0]:
-        hint_string += '<br><i class="icon-ok icon-white"></i> \
+        hint_string += '<br><i class="icon-ok"></i> \
                         <font color="green">Address</font>'
     else:
-        hint_string += '<br><i class="icon-remove icon-white"></i> \
+        hint_string += '<br><i class="icon-remove"></i> \
                         <font color="red">Address</font>'
     ## Hint row 3: Phone number ##
     if feature_row[1]:
-        hint_string += '<br><i class="icon-ok icon-white"></i> \
+        hint_string += '<br><i class="icon-ok"></i> \
                         <font color="green">Phone</font>'
     else:
-        hint_string += '<br><i class="icon-remove icon-white"></i> \
+        hint_string += '<br><i class="icon-remove"></i> \
                         <font color="red">Phone</font>'
     ## Hint row 4: Frac of cap letters ##
     if int(feature_row[4]*100)>7:
