@@ -2,10 +2,78 @@
 {% block content %}
     
     <div class="container">
-        <br><br>
-        <div class="row" id="main-content">
-            <div class="span12 well">
-                Examples!
+        <br>
+        <div class='row' id='main-content'>
+            <div class="span6" id="contentbox">
+                <div class='well'>
+                    <h4>Confirmed Legitimate Posts</h4>
+                    {% for l in legit_tSample %}
+                        <p>
+                        <div class='row'>
+                        <div class='span12'>
+                            <div class='span1 {{l[2]}}'
+                             data-toggle='popover'
+                             data-trigger='hover'
+                             data-html='true'
+                             data-animation='true'
+                             data-placement='top'
+                             data-content='{{l[4]}}'>{{l[3]}}</div>
+                             &nbsp
+                            <a class="span4" href="#{{l[5]}}" 
+                             data-toggle="modal">{{l[0]}}</a>
+                            <div id="{{l[5]}}" class="modal hide fade" 
+                             tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-header">
+                                    <button type="button" class="close" 
+                                     data-dismiss="modal" aria-hidden="true">
+                                     x</button>
+                                    <h4>{{l[0]}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    {{l[1]}}
+                                </div>
+                            </div>
+                         </div>
+                         </div>
+                         </p>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="span6" id='contentbox'>
+                <div class='well'>
+                    <h4>Confirmed Scam Posts</h4>
+                    {% for l in scams_tSample %}
+                        <p>
+                        <div class='row'>
+                        <div class='span12'>
+                            <div class='span1 {{l[2]}}'
+                             data-toggle='popover'
+                             data-trigger='hover'
+                             data-html='true'
+                             data-animation='true'
+                             data-placement='top'
+                             data-content='{{l[4]}}'>{{l[3]}}</div>
+                             &nbsp
+                            <a class="span4" href="#{{l[5]}}" 
+                             data-toggle="modal">{{l[0]}}</a>
+                            <div id="{{l[5]}}" class="modal hide fade" 
+                             tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-header">
+                                    <button type="button" class="close" 
+                                     data-dismiss="modal" aria-hidden="true">
+                                     x</button>
+                                    <h4>{{l[0]}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    {{l[1]}}
+                                </div>
+                            </div>
+                         </div>
+                         </div>
+                         </p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
