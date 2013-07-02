@@ -36,6 +36,8 @@ def search_results():
     # Scrape and process listing
     q = query.Query(search_terms)
     post_listing  = q.scrape(5)
+    if post_listing==None:
+        return render_template('no-result.html')
     # Get the feature array
     m = metric.Metric(post_listing, coordMat, npriceList)
     feature_arr = m.format_metrics()
@@ -104,6 +106,10 @@ def examples():
 
     return render_template('examples.html', 
                            legit_tSample=legit_heads, scams_tSample=scams_heads)
+
+@app.route('/slides')
+def slides():
+    return render_template('slides.html')
 
 if __name__ == '__main__':
     if socket.gethostbyname(socket.gethostname()).startswith('172'):

@@ -29,20 +29,46 @@
         <div class="span12">
             <nav class="navbar">    
             <div class="navbar-inner">
-                <a href="/" class="brand">Less Sketchy</a>
+                <a href="/" class="brand"><strong>Less</strong>Sketchy</a>
                 <ul class="nav"> 
                     <li class="divider-vertical"></li>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="#about" data-toggle="modal">About</a></li>
+                        <div id="about" class="modal hide fade">
+                            <div class='modal-header'>
+                                <button type='button' class='close' 
+                                 data-dismiss='modal' aria-hidden='true'>
+                                 x</button>
+                                <h3>About This Web-App</h3>
+                            </div>
+                            <div class='modal-body'>
+                                <p>
+                                    LessSketchy queries the latest 
+                                    <a href="www.craigslist.com">Craigslist</a>
+                                    apartment postings from the Bay area. It then analyzes
+                                    its listing price, the presence of specific information,
+                                    and some textual hints to provide a fraud assessment of 
+                                    the postings.
+                                </p>
+                                <p>
+                                    The fraud detection model is trained with the balanced
+                                    random forest algorithm using a highly imbalaned training 
+                                    set (99% legitimate and 1% fraudulent posts).
+                                </p>
+                            </div>
+                            <div class='modal-footer'>
+                            </div>
+                        </div>
                     <li class="divider-vertical"></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="/slides">Slides</a></li>
                     <li class="divider-vertical"></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Connect/Contact<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="http://www.linkedin.com/pub/shih-ho-cheng/26/855/857">LinkedIn</a></li>
+                            <li><a href="https://twitter.com/WoofChance">Twitter</a></li>
+                            <li><a href="https://github.com/shcheng">Github</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">E-mail</a></li>
+                            <li><a href="mailto:shihho.cheng@gmail.com">shihho.cheng [at] gmail</a></li>
                         </ul>
                     </li>
                     <li class="divider-vertical"></li>

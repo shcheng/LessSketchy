@@ -39,6 +39,8 @@ class Query:
         page = urllib2.urlopen(self.url)
         soup = BeautifulSoup(page)
         listing = soup.find_all('p', attrs={'class':'row'})
+        if len(listing)==0:
+            return None
         for post in listing[:n_post]:
             nbr_match = re.search(' / [0-9]br - ', str(post))
             prc_match = re.search('\$\d+', str(post))
