@@ -46,7 +46,7 @@ print "<> Got the metrics"
 brf = bRandomForest.BalRandomForest(legit_farr, scams_farr)
 brf.allocate_test_sample()
 brf.train(1000)
-brf.pickle_trained_model('../pickle_jar/ensembleModel_scan06_v4.pickle')
+brf.pickle_trained_model('../pickle_jar/ensembleModel_scan12_v1.pickle')
 # Get some validations
 conf_mat = brf.get_confusion_matrix(brf.test_sample[:, :-1],
                                     brf.test_sample[:, -1],

@@ -41,19 +41,40 @@
                                 <h3>About This Web-App</h3>
                             </div>
                             <div class='modal-body'>
-                                <p>
-                                    LessSketchy queries the latest 
-                                    <a href="www.craigslist.com">Craigslist</a>
-                                    apartment postings from the Bay area. It then analyzes
-                                    its listing price, the presence of specific information,
-                                    and some textual hints to provide a fraud assessment of 
-                                    the postings.
-                                </p>
-                                <p>
-                                    The fraud detection model is trained with the balanced
-                                    random forest algorithm using a highly imbalaned training 
-                                    set (99% legitimate and 1% fraudulent posts).
-                                </p>
+                                <ul>
+                                    <li>
+                                    <p>
+                                        Queries the latest 
+                                        <a href="www.craigslist.com">Craigslist</a>
+                                        apartment postings from the Bay area.                                                        </p>
+                                    </li>
+                                    <li>
+                                    <p>
+                                        Analyzes listing price, absence of specific information,
+                                        number of words and fraction of capital letters used in
+                                        the posts.
+
+                                    </p>
+                                    </li>
+                                    <li>
+                                    <p>
+                                        Trained detection model with the balanced
+                                        random forest algorithm for a <strong>highly imbalanced
+                                        </strong> training 
+                                        set (99% legitimate and 1% fraudulent posts).
+                                    </p>
+                                    </li>
+                                </ul>
+                                <br>
+                                <h4>Cross-validation</h4>
+                                <table class='table table-hover'>
+                                    <tbody>
+                                        <tr><td>Precision</td> <td>74%</td></tr>
+                                        <tr><td>Recall</td> <td>80%</td></tr>
+                                        <tr><td>False Positive</td> <td>28%</td></tr>
+                                        <tr><td>F-score</td> <td>77%</td></tr>
+                                    </tbody>
+                                </table>
                             </div>
                             <div class='modal-footer'>
                             </div>
