@@ -120,4 +120,4 @@ if __name__ == '__main__':
         address = '127.0.0.1'
         portNum = 5000
         app.debug = True
-    app.run(address, port=portNum)
+    app.run(address, port=portNum, threaded=True)
