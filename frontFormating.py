@@ -10,7 +10,7 @@ def get_sketchyLevel(score):
     label = []
     if score>=0.65:
         label = ['btn btn-danger btn-mini', 'Sketchy']
-    elif score<=0.35:
+    elif score<=0.40:
         label = ['btn btn-success btn-mini', 'Seems Legit']
     else:
         label = ['btn btn-warning btn-mini', 'Hard to tell']
