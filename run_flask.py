@@ -14,12 +14,15 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the ensemble models
-clf_model  = pickle.load(open('./pickle_jar/ensembleModel_scan11_v1.pickle', 'r'))
+#clf_model  = pickle.load(open('./pickle_jar/ensembleModel_scan11_v1.pickle', 'r'))
+clf_model  = pickle.load(open('/home/ubuntu/LessSketchy/pickle_jar/ensembleModel_scan11_v1.pickle', 'r'))
 print "<> Training model loaded"
 
 # Load coordMat and npriceList info
-coordMat   = pickle.load(open('./pickle_jar/coordMat_scan11_v1.pickle', 'r'))
-npriceList = pickle.load(open('./pickle_jar/npriceList_scan11_v1.pickle', 'r'))
+#coordMat   = pickle.load(open('./pickle_jar/coordMat_scan11_v1.pickle', 'r'))
+#npriceList = pickle.load(open('./pickle_jar/npriceList_scan11_v1.pickle', 'r'))
+coordMat   = pickle.load(open('/home/ubuntu/LessSketchy/pickle_jar/coordMat_scan11_v1.pickle', 'r'))
+npriceList = pickle.load(open('/home/ubuntu/LessSketchy//pickle_jar/npriceList_scan11_v1.pickle', 'r'))
 print "<> coord and normalized data loaded"
 
 @app.route('/')
